@@ -80,6 +80,39 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mgoogleMap = googleMap;
         goToLocationZoom(23.038596, 72.528570, 15);
+        if(mgoogleMap!= null) {
+            mgoogleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+                @Override
+                public void onMarkerDragStart(Marker marker) {
+
+                }
+
+                @Override
+                public void onMarkerDrag(Marker marker) {
+
+                }
+
+                @Override
+                public void onMarkerDragEnd(Marker marker) {
+                    Geocoder gc = new Geocoder(MainActivity.this);
+                    LatLng ll = marker.getPosition();
+                    double lat = ll.latitude;
+                    double lng = ll.longitude;
+                    List<Address> list = null;
+                    try {
+                        list = gc.getFromLocation(lat, lng, 1);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Address add = list.get(0);
+                    marker.setTitle(add.getLocality());
+
+
+                }
+            });
+
+        }
+    }
       /*  if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -99,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         mGoogleApiClient.connect();
 */
 
-    }
+   // }
 
     private void goToLocationZoom(double v, double v1, float zoom) {
 
@@ -142,6 +175,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
         MarkerOptions options= new MarkerOptions()
                 .title(locality)
+                .draggable(true)
                // .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
                 .snippet("I am here")
                 .position(new LatLng(lat,lng));

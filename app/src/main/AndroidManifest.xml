@@ -2,22 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jeetendraachtani.mapsapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    
-    <permission android:name="com.example.jeetendraachtani.mapsapp.permission.MAPS_RECEIVE"
-        android:protectionLevel="signature"/>
+    <permission
+        android:name="com.example.jeetendraachtani.mapsapp.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.jeetendraachtani.mapsapp.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permissions.READ_GSERVICES" />
 
-    <uses-feature android:glEsVersion="0x20000" android:required="true"/>
+    <uses-feature
+        android:glEsVersion="0x20000"
+        android:required="true" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -26,18 +28,26 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCS9QO7zC2aOh6Xz3HGqycOQefJXAokLcA" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDke4vWk5PO3rhz8-2GmkrxH1PGTX6Ag1A" />
+        <meta-data
+            android:name="com.google.androi.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".PlacesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyCS9QO7zC2aOh6Xz3HGqycOQefJXAokLcA"/>
-
-        <meta-data android:name="com.google.androi.gms.version"
-            android:value="@integer/google_play_services_version"/>
     </application>
 
 </manifest>
