@@ -27,27 +27,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
 
-        </activity>
-
+        <!-- Maps API key -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyCS9QO7zC2aOh6Xz3HGqycOQefJXAokLcA" />
+
+        <!-- Places API key
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDke4vWk5PO3rhz8-2GmkrxH1PGTX6Ag1A" />
+            -->
         <meta-data
             android:name="com.google.androi.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".PlacesActivity">
+
+        </activity>
+        <activity android:name=".CustomPlacesActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CustomSecondActivity"></activity>
     </application>
 
 </manifest>
